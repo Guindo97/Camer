@@ -1,0 +1,57 @@
+# 🔊 Démonstration Audio Tikar
+
+## 🎯 **Pour Ajouter de Vrais Fichiers Audio :**
+
+1. **Enregistrez** vos prononciations Tikar
+2. **Nommez** les fichiers selon les catégories :
+   - `salutations.mp3`
+   - `politesse.mp3` 
+   - `famille.mp3`
+   - `nature.mp3`
+3. **Placez** les fichiers dans ce dossier
+4. **Testez** la lecture sur le site
+
+## 🎵 **Contenu de Chaque Fichier :**
+
+### **salutations.mp3** (2-3 minutes)
+- "Mbèn" (Bonjour) - pause
+- "Nde" (Bonsoir) - pause  
+- "Nkum" (Au revoir) - pause
+- "Mba" (Bonne nuit) - pause
+- "Ntum" (Bonne journée) - pause
+
+### **politesse.mp3** (2-3 minutes)
+- "Nde" (Merci) - pause
+- "Mba" (S'il vous plaît) - pause
+- "Nkeng" (Excusez-moi) - pause
+- "Ntum" (Pardon) - pause
+
+### **famille.mp3** (2-3 minutes)
+- "Nkum" (Famille) - pause
+- "Ntum" (Ami) - pause
+- "Mba" (Enfant) - pause
+- "Nkeng" (Père) - pause
+
+### **nature.mp3** (2-3 minutes)
+- "Mba" (Eau) - pause
+- "Ntum" (Terre) - pause
+- "Nkum" (Arbre) - pause
+- "Nkeng" (Feu) - pause
+
+## 🎙️ **Conseils d'Enregistrement :**
+
+- **Parlez lentement** et clairement
+- **Laissez 2-3 secondes** entre chaque mot
+- **Utilisez un microphone** de qualité
+- **Enregistrez dans un endroit calme**
+- **Testez** la qualité avant de finaliser
+
+## 📱 **Formats Supportés :**
+
+- **MP3** (recommandé)
+- **WAV** (qualité maximale)
+- **OGG** (alternative)
+
+---
+
+**🚀 Une fois vos fichiers ajoutés, les lecteurs audio afficheront la vraie prononciation Tikar !**

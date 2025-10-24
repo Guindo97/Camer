@@ -1,104 +1,106 @@
 import React from 'react'
 import SimpleTikarImage from '../components/SimpleTikarImage'
+import { useTranslation } from '../hooks/useTranslation'
 
 export default function Galerie() {
+  const { t } = useTranslation()
   const events = [
     { 
-      title: 'Festival de danse traditionnelle', 
+      title: t('gallery.eventDanceFestival'), 
       date: '2024', 
       g: 'from-yellow-400 to-red-500', 
       emoji: '💃',
-      type: 'Danse',
-      description: 'Célébration des danses traditionnelles Tikar',
+      type: t('gallery.filters.dances'),
+      description: t('gallery.eventDanceFestivalDesc'),
       image: '/images/danse-tikar.jpg'
     },
     { 
-      title: 'Cours de langue Tikar', 
+      title: t('gallery.eventLanguageCourse'), 
       date: '2024', 
       g: 'from-red-500 to-pink-500', 
       emoji: '📚',
-      type: 'Éducation',
-      description: 'Séance d\'apprentissage de la langue Tikar',
+      type: t('gallery.filters.courses'),
+      description: t('gallery.eventLanguageCourseDesc'),
       image: '/images/cours-langue.jpg'
     },
     { 
-      title: 'Cérémonie traditionnelle', 
+      title: t('gallery.eventTraditionalCeremony'), 
       date: '2024', 
       g: 'from-green-500 to-teal-500', 
       emoji: '🎭',
-      type: 'Cérémonie',
-      description: 'Rituel traditionnel du peuple Tikar',
+      type: t('gallery.filters.events'),
+      description: t('gallery.eventTraditionalCeremonyDesc'),
       image: '/images/ceremonie-tikar.jpg'
     },
     { 
-      title: 'Atelier de percussion', 
+      title: t('gallery.eventPercussionWorkshop'), 
       date: '2024', 
       g: 'from-purple-500 to-indigo-500', 
       emoji: '🥁',
-      type: 'Musique',
-      description: 'Apprentissage des instruments traditionnels',
+      type: t('gallery.filters.events'),
+      description: t('gallery.eventPercussionWorkshopDesc'),
       image: '/images/percussion.jpg'
     },
     { 
-      title: 'Exposition d\'artisanat', 
+      title: t('gallery.eventCraftExhibition'), 
       date: '2024', 
       g: 'from-orange-500 to-red-500', 
       emoji: '🏺',
-      type: 'Artisanat',
-      description: 'Œuvres d\'art et artisanat Tikar',
+      type: t('gallery.filters.events'),
+      description: t('gallery.eventCraftExhibitionDesc'),
       image: '/images/artisanat.jpg'
     },
     { 
-      title: 'Conférence culturelle', 
+      title: t('gallery.eventCulturalConference'), 
       date: '2024', 
       g: 'from-teal-500 to-green-500', 
       emoji: '🎨',
-      type: 'Conférence',
-      description: 'Présentation sur l\'histoire Tikar',
+      type: t('gallery.filters.events'),
+      description: t('gallery.eventCulturalConferenceDesc'),
       image: '/images/conference.jpg'
     },
     { 
-      title: 'Rencontre communautaire', 
+      title: t('gallery.eventCommunityMeeting'), 
       date: '2024', 
       g: 'from-indigo-500 to-purple-500', 
       emoji: '🤝',
-      type: 'Communauté',
-      description: 'Rassemblement de la diaspora Tikar',
+      type: t('gallery.filters.events'),
+      description: t('gallery.eventCommunityMeetingDesc'),
       image: '/images/communaute.jpg'
     },
     { 
-      title: 'Festival annuel', 
+      title: t('gallery.eventAnnualFestival'), 
       date: '2024', 
       g: 'from-pink-500 to-red-500', 
       emoji: '🎉',
-      type: 'Festival',
-      description: 'Grande célébration annuelle de la culture Tikar',
+      type: t('gallery.filters.events'),
+      description: t('gallery.eventAnnualFestivalDesc'),
       image: '/images/festival.jpg'
     },
   ]
 
   const videos = [
     {
-      title: 'Danses traditionnelles Tikar',
-      description: 'Spectacle de danses traditionnelles lors du festival 2024',
+      title: t('gallery.videoDanceTitle'),
+      description: t('gallery.videoDanceDesc'),
       thumbnail: '/images/video-danse.jpg',
       duration: '5:30'
     },
     {
-      title: 'Cours de langue en action',
-      description: 'Séance d\'apprentissage de la langue Tikar avec nos enseignants',
+      title: t('gallery.videoCourseTitle'),
+      description: t('gallery.videoCourseDesc'),
       thumbnail: '/images/video-cours.jpg',
       duration: '8:15'
     },
     {
-      title: 'Musique et chants traditionnels',
-      description: 'Performance musicale avec instruments traditionnels',
+      title: t('gallery.videoMusicTitle'),
+      description: t('gallery.videoMusicDesc'),
       thumbnail: '/images/video-musique.jpg',
       duration: '6:45'
     },
     {
-      title: 'Témoignages de la communauté',
-      description: 'Membres de la diaspora partagent leur expérience',
+      title: t('gallery.videoTestimonialsTitle'),
+      description: t('gallery.videoTestimonialsDesc'),
       thumbnail: '/images/video-temoignages.jpg',
       duration: '12:20'
     }
@@ -107,17 +109,17 @@ export default function Galerie() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold text-red-800 mb-4">Galerie</h2>
+        <h2 className="text-4xl font-bold text-red-800 mb-4">{t('gallery.title')}</h2>
         <div className="w-24 h-1 bg-yellow-500 mx-auto" />
-        <p className="text-lg text-gray-600 mt-4">Découvrez nos événements, danses, rencontres et moments de partage</p>
+        <p className="text-lg text-gray-600 mt-4">{t('gallery.description')}</p>
       </div>
 
       {/* Filtres */}
       <div className="flex flex-wrap justify-center gap-4 mb-8">
-        <button className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">Tous</button>
-        <button className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">Danses</button>
-        <button className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">Cours</button>
-        <button className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">Événements</button>
+        <button className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">{t('gallery.filters.all')}</button>
+        <button className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">{t('gallery.filters.dances')}</button>
+        <button className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">{t('gallery.filters.courses')}</button>
+        <button className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">{t('gallery.filters.events')}</button>
       </div>
 
       {/* Grille de photos avec vraies images */}
@@ -146,7 +148,7 @@ export default function Galerie() {
 
       {/* Section vidéos améliorée */}
       <div className="bg-gradient-to-br from-amber-50 to-yellow-100 rounded-2xl p-8 mb-8">
-        <h3 className="text-2xl font-bold text-red-800 mb-6 text-center">Vidéos de nos événements</h3>
+        <h3 className="text-2xl font-bold text-red-800 mb-6 text-center">{t('gallery.videosTitle')}</h3>
         <div className="grid md:grid-cols-2 gap-6">
           {videos.map((video, i) => (
             <div key={i} className="bg-white rounded-lg p-4 shadow-lg hover-lift">
@@ -171,7 +173,7 @@ export default function Galerie() {
 
       {/* Section photos du peuple Tikar */}
       <div className="bg-gradient-to-br from-red-100 to-yellow-100 rounded-2xl p-8 mb-8">
-        <h3 className="text-2xl font-bold text-red-800 mb-6 text-center">Le peuple Tikar de Bankim</h3>
+        <h3 className="text-2xl font-bold text-red-800 mb-6 text-center">{t('gallery.tikarPeopleTitle')}</h3>
         <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white rounded-lg p-4 shadow-lg">
               <div className="aspect-video rounded-lg overflow-hidden mb-4">
@@ -181,8 +183,8 @@ export default function Galerie() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h4 className="font-semibold text-gray-800 mb-2">Traditions ancestrales</h4>
-              <p className="text-sm text-gray-600">Le peuple Tikar de Bankim préserve ses traditions millénaires</p>
+              <h4 className="font-semibold text-gray-800 mb-2">{t('gallery.ancestralTraditions')}</h4>
+              <p className="text-sm text-gray-600">{t('gallery.ancestralTraditionsDesc')}</p>
             </div>
           
           <div className="bg-white rounded-lg p-4 shadow-lg">
@@ -192,8 +194,8 @@ export default function Galerie() {
                 <div className="text-sm">Village de Bankim</div>
               </div>
             </div>
-            <h4 className="font-semibold text-gray-800 mb-2">Terre ancestrale</h4>
-            <p className="text-sm text-gray-600">Bankim, berceau de la culture Tikar dans l'Adamaoua</p>
+            <h4 className="font-semibold text-gray-800 mb-2">{t('gallery.ancestralLand')}</h4>
+            <p className="text-sm text-gray-600">{t('gallery.ancestralLandDesc')}</p>
           </div>
           
           <div className="bg-white rounded-lg p-4 shadow-lg">
@@ -203,15 +205,15 @@ export default function Galerie() {
                 <div className="text-sm">Diaspora</div>
               </div>
             </div>
-            <h4 className="font-semibold text-gray-800 mb-2">Diaspora mondiale</h4>
-            <p className="text-sm text-gray-600">La communauté Tikar à travers le monde</p>
+            <h4 className="font-semibold text-gray-800 mb-2">{t('gallery.globalDiaspora')}</h4>
+            <p className="text-sm text-gray-600">{t('gallery.globalDiasporaDesc')}</p>
           </div>
         </div>
       </div>
 
       <div className="text-center">
-        <button className="bg-red-600 text-white px-8 py-3 rounded-lg hover:bg-red-700 transition-colors mr-4">Voir plus de photos</button>
-        <button className="bg-yellow-600 text-white px-8 py-3 rounded-lg hover:bg-yellow-700 transition-colors">Voir les vidéos</button>
+        <button className="bg-red-600 text-white px-8 py-3 rounded-lg hover:bg-red-700 transition-colors mr-4">{t('gallery.morePhotos')}</button>
+        <button className="bg-yellow-600 text-white px-8 py-3 rounded-lg hover:bg-yellow-700 transition-colors">{t('gallery.viewVideos')}</button>
       </div>
     </div>
   )

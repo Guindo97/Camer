@@ -8,8 +8,10 @@ import {
   addWord 
 } from '../services/dictionaryService'
 import DictionaryFallback from './DictionaryFallback'
+import { useTranslation } from '../hooks/useTranslation'
 
 export default function Dictionary() {
+  const { t } = useTranslation()
   const [wordOfDay, setWordOfDay] = useState(null)
   const [allWords, setAllWords] = useState([])
   const [searchResults, setSearchResults] = useState([])
@@ -28,11 +30,11 @@ export default function Dictionary() {
   })
 
   const categories = [
-    'Salutations', 'Politesse', 'Nature', 'Relations', 
-    'Lieux', 'Culture', 'Gouvernance', 'Spiritualité'
+    t('dictionary.categories.greetings'), t('dictionary.categories.politeness'), t('dictionary.categories.nature'), t('dictionary.categories.relationships'), 
+    t('dictionary.categories.places'), t('dictionary.categories.culture'), t('dictionary.categories.governance'), t('dictionary.categories.spirituality')
   ]
 
-  const difficulties = ['Débutant', 'Intermédiaire', 'Avancé']
+  const difficulties = [t('language.beginner'), t('language.intermediate'), t('dictionary.advanced')]
 
   useEffect(() => {
     loadWordOfDay()
@@ -186,32 +188,32 @@ export default function Dictionary() {
 
       {/* Recherche et filtres */}
       <div className="bg-white rounded-2xl p-6 shadow-lg mb-8">
-        <h3 className="text-xl font-bold text-red-800 mb-4">Rechercher dans le dictionnaire</h3>
+        <h3 className="text-xl font-bold text-red-800 mb-4">{t('dictionary.searchInDictionary')}</h3>
         
         <div className="grid md:grid-cols-2 gap-4 mb-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Rechercher un mot
+              {t('dictionary.searchWord')}
             </label>
             <input
               type="text"
               value={searchTerm}
               onChange={(e) => handleSearch(e.target.value)}
-              placeholder="Tapez un mot en Tikar ou en français..."
+              placeholder={t('dictionary.searchPlaceholder')}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
             />
           </div>
           
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Filtrer par catégorie
+              {t('dictionary.filterByCategory')}
             </label>
             <select
               value={selectedCategory}
               onChange={(e) => handleCategoryFilter(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
             >
-              <option value="">Toutes les catégories</option>
+              <option value="">{t('dictionary.allCategories')}</option>
               {categories.map(category => (
                 <option key={category} value={category}>{category}</option>
               ))}
@@ -318,7 +320,7 @@ export default function Dictionary() {
                 type="submit"
                 className="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition-colors"
               >
-                Ajouter le mot au dictionnaire
+                {t('dictionary.addWordToDictionary')}
               </button>
             </div>
           </form>
@@ -329,7 +331,7 @@ export default function Dictionary() {
       {(searchResults.length > 0 || (searchTerm === '' && selectedCategory === '')) && (
         <div className="bg-white rounded-2xl p-6 shadow-lg">
           <h3 className="text-xl font-bold text-red-800 mb-4">
-            {searchResults.length > 0 ? 'Résultats de recherche' : 'Tous les mots du dictionnaire'}
+            {searchResults.length > 0 ? t('dictionary.searchResults') : t('dictionary.allWords')}
           </h3>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">

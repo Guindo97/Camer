@@ -1,7 +1,9 @@
 import React, { useEffect, useRef } from 'react'
 import FillTikarImage from '../components/FillTikarImage'
+import { useTranslation } from '../hooks/useTranslation'
 
-export default function Accueil({ title, welcome }) {
+export default function Accueil() {
+  const { t } = useTranslation()
   const containerRef = useRef(null)
   useEffect(() => {
     const el = containerRef.current
@@ -30,26 +32,26 @@ export default function Accueil({ title, welcome }) {
                 className="w-full h-full object-cover"
               />
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold text-red-800 mb-6">{title}</h1>
+            <h1 className="text-5xl md:text-7xl font-bold text-red-800 mb-6">{t('home.title')}</h1>
             <div className="w-16 h-16 tikar-gold rounded-full flex items-center justify-center ml-4 cultural-float">
               <span className="text-white text-2xl">👑</span>
             </div>
           </div>
           
           <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 mb-8 max-w-4xl mx-auto tikar-shadow">
-            <p className="text-xl md:text-2xl text-gray-800 mb-4 font-medium">{welcome}</p>
+            <p className="text-xl md:text-2xl text-gray-800 mb-4 font-medium">{t('home.welcome')}</p>
             <div className="flex items-center justify-center space-x-6 text-sm text-gray-600">
               <div className="flex items-center">
                 <span className="w-3 h-3 cameroon-green rounded-full mr-2"></span>
-                <span>Peuple Tikar</span>
+                <span>{t('home.tikarPeople')}</span>
               </div>
               <div className="flex items-center">
                 <span className="w-3 h-3 cameroon-red rounded-full mr-2"></span>
-                <span>Bankim, Adamaoua</span>
+                <span>{t('home.bankim')}</span>
               </div>
               <div className="flex items-center">
                 <span className="w-3 h-3 cameroon-yellow rounded-full mr-2"></span>
-                <span>Cameroun</span>
+                <span>{t('home.cameroon')}</span>
               </div>
             </div>
           </div>
@@ -73,8 +75,8 @@ export default function Accueil({ title, welcome }) {
               className="relative z-10 w-full h-full object-contain"
             />
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 z-20">
-              <h3 className="text-white text-lg font-bold">Peuple Tikar de Bankim</h3>
-              <p className="text-white/90 text-sm">Terre ancestrale de l'Adamaoua</p>
+              <h3 className="text-white text-lg font-bold">{t('home.tikarPeopleTitle')}</h3>
+              <p className="text-white/90 text-sm">{t('home.ancestralLand')}</p>
             </div>
             <div className="absolute -top-4 -left-4 w-20 h-20 bg-yellow-500 rounded-full flex items-center justify-center shadow-lg z-20">
               <span className="text-3xl">🥁</span>
@@ -92,20 +94,18 @@ export default function Accueil({ title, welcome }) {
             <div className="w-12 h-12 cameroon-gradient rounded-full flex items-center justify-center mr-4">
               <span className="text-white text-xl">🏛️</span>
             </div>
-            <h2 className="text-3xl font-bold text-red-800">Notre Association</h2>
+            <h2 className="text-3xl font-bold text-red-800">{t('home.ourAssociation')}</h2>
           </div>
           <p className="text-lg text-gray-700 leading-relaxed mb-6">
-            Fondée par des membres de la diaspora Tikar, notre association œuvre pour la préservation 
-            et la transmission de notre riche héritage culturel. Nous organisons des cours de langue, 
-            des événements culturels et des activités communautaires pour maintenir vivante notre tradition.
+            {t('home.associationDescription')}
           </p>
           <div className="flex items-center space-x-4 p-4 bg-gradient-to-r from-green-50 to-yellow-50 rounded-xl">
             <div className="w-12 h-12 tikar-gold rounded-full flex items-center justify-center cultural-float">
               <span className="text-2xl">🌍</span>
             </div>
             <div>
-              <h4 className="font-semibold text-gray-800">Diaspora Tikar</h4>
-              <p className="text-sm text-gray-600">France, Canada, Europe, Monde</p>
+              <h4 className="font-semibold text-gray-800">{t('home.diaspora')}</h4>
+              <p className="text-sm text-gray-600">{t('home.diasporaDescription')}</p>
             </div>
           </div>
         </div>
@@ -115,7 +115,7 @@ export default function Accueil({ title, welcome }) {
             <div className="w-12 h-12 tikar-gradient rounded-full flex items-center justify-center mr-4">
               <span className="text-white text-xl">💎</span>
             </div>
-            <h3 className="text-2xl font-bold text-gray-800">Nos Valeurs</h3>
+            <h3 className="text-2xl font-bold text-gray-800">{t('home.ourValues')}</h3>
           </div>
           <div className="space-y-6">
             <div className="flex items-center p-4 bg-white/70 rounded-xl hover-lift">
@@ -123,8 +123,8 @@ export default function Accueil({ title, welcome }) {
                 <span className="text-2xl text-white">🏛️</span>
               </div>
               <div>
-                <h4 className="font-semibold text-gray-800">Tradition</h4>
-                <p className="text-sm text-gray-600">Préservation de notre héritage millénaire</p>
+                <h4 className="font-semibold text-gray-800">{t('home.tradition')}</h4>
+                <p className="text-sm text-gray-600">{t('home.traditionDescription')}</p>
               </div>
             </div>
             <div className="flex items-center p-4 bg-white/70 rounded-xl hover-lift">
@@ -132,8 +132,8 @@ export default function Accueil({ title, welcome }) {
                 <span className="text-2xl text-white">📚</span>
               </div>
               <div>
-                <h4 className="font-semibold text-gray-800">Éducation</h4>
-                <p className="text-sm text-gray-600">Transmission aux nouvelles générations</p>
+                <h4 className="font-semibold text-gray-800">{t('home.education')}</h4>
+                <p className="text-sm text-gray-600">{t('home.educationDescription')}</p>
               </div>
             </div>
             <div className="flex items-center p-4 bg-white/70 rounded-xl hover-lift">
@@ -141,8 +141,8 @@ export default function Accueil({ title, welcome }) {
                 <span className="text-2xl text-white">🤝</span>
               </div>
               <div>
-                <h4 className="font-semibold text-gray-800">Communauté</h4>
-                <p className="text-sm text-gray-600">Liens forts entre membres</p>
+                <h4 className="font-semibold text-gray-800">{t('home.community')}</h4>
+                <p className="text-sm text-gray-600">{t('home.communityDescription')}</p>
               </div>
             </div>
           </div>

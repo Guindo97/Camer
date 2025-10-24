@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import { useTranslation } from '../hooks/useTranslation'
 
 export default function VideoLesson({ title, description, videoUrl, duration, level }) {
+  const { t } = useTranslation()
   const [isPlaying, setIsPlaying] = useState(false)
   const [showVideo, setShowVideo] = useState(false)
 
@@ -45,19 +47,19 @@ export default function VideoLesson({ title, description, videoUrl, duration, le
               onEnded={() => setIsPlaying(false)}
             >
               <source src={currentVideoUrl} type="video/mp4" />
-              Votre navigateur ne supporte pas la lecture vidéo.
+              {t('videoLesson.browserNotSupported')}
             </video>
           ) : (
             <div className="text-center text-white">
               <div className="text-6xl mb-4">▶️</div>
-              <p className="text-lg">Leçon vidéo Tikar</p>
-              <p className="text-sm opacity-75">Cliquez pour commencer</p>
+              <p className="text-lg">{t('videoLesson.tikarVideoLesson')}</p>
+              <p className="text-sm opacity-75">{t('videoLesson.clickToStart')}</p>
               <div className="mt-4">
                 <button 
                   onClick={handlePlay}
                   className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors"
                 >
-                  🎬 Démarrer la leçon
+                  🎬 {t('videoLesson.startLesson')}
                 </button>
               </div>
             </div>
@@ -70,17 +72,17 @@ export default function VideoLesson({ title, description, videoUrl, duration, le
           onClick={showVideo ? handlePause : handlePlay}
           className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors"
         >
-          {isPlaying ? '⏸️ Pause' : '▶️ Lire la leçon'}
+          {isPlaying ? `⏸️ ${t('videoLesson.pause')}` : `▶️ ${t('videoLesson.playLesson')}`}
         </button>
         <div className="text-sm text-gray-500">
-          📚 Cours de langue Tikar
+          📚 {t('videoLesson.tikarLanguageCourse')}
         </div>
       </div>
       
       {!currentVideoUrl && (
         <div className="mt-4 p-3 bg-yellow-100 border border-yellow-300 rounded-lg">
           <p className="text-sm text-yellow-800">
-            💡 <strong>Note :</strong> Cette vidéo est un exemple. Remplacez par vos vraies leçons vidéo Tikar.
+            💡 <strong>{t('videoLesson.note')}:</strong> {t('videoLesson.exampleVideo')}
           </p>
         </div>
       )}

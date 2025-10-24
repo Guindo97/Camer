@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from '../hooks/useTranslation'
 
 function Card({ icon, title, children }) {
   return (
@@ -14,7 +15,8 @@ function Card({ icon, title, children }) {
   )
 }
 
-export default function Activites({ activitiesTitle }) {
+export default function Activites() {
+  const { t } = useTranslation()
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 relative">
@@ -24,7 +26,7 @@ export default function Activites({ activitiesTitle }) {
               <div className="w-12 h-12 tikar-gradient rounded-full flex items-center justify-center mr-4 cultural-float">
                 <span className="text-white text-xl">🎓</span>
               </div>
-              <h2 className="text-4xl font-bold text-red-800">{activitiesTitle}</h2>
+              <h2 className="text-4xl font-bold text-red-800">{t('activities.title')}</h2>
               <div className="w-12 h-12 rounded-full flex items-center justify-center ml-4 cultural-float overflow-hidden">
                 <img 
                   src="https://flagcdn.com/w40/cm.png" 
@@ -38,37 +40,37 @@ export default function Activites({ activitiesTitle }) {
         </div>
 
       <div className="grid md:grid-cols-3 gap-8">
-        <Card icon="📖" title="Cours de langue Tikar">
-          <p className="text-gray-600 mb-4">Cours hebdomadaires pour tous niveaux, du débutant à l'avancé.</p>
+        <Card icon="📖" title={t('activities.languageCourses')}>
+          <p className="text-gray-600 mb-4">{t('activities.languageCoursesDescription')}</p>
           <ul className="text-sm text-gray-500 space-y-1">
-            <li>• Cours pour enfants (6-12 ans)</li>
-            <li>• Cours pour adolescents (13-17 ans)</li>
-            <li>• Cours pour adultes</li>
+            {t('activities.languageCoursesList').map((item, index) => (
+              <li key={index}>• {item}</li>
+            ))}
           </ul>
         </Card>
 
-        <Card icon="🎪" title="Événements culturels">
-          <p className="text-gray-600 mb-4">Conférences, ateliers et célébrations traditionnelles.</p>
+        <Card icon="🎪" title={t('activities.culturalEvents')}>
+          <p className="text-gray-600 mb-4">{t('activities.culturalEventsDescription')}</p>
           <ul className="text-sm text-gray-500 space-y-1">
-            <li>• Festivals annuels</li>
-            <li>• Ateliers d'artisanat</li>
-            <li>• Conférences historiques</li>
+            {t('activities.culturalEventsList').map((item, index) => (
+              <li key={index}>• {item}</li>
+            ))}
           </ul>
         </Card>
 
-        <Card icon="🥁" title="Arts traditionnels">
-          <p className="text-gray-600 mb-4">Apprentissage des danses, musiques et arts Tikar.</p>
+        <Card icon="🥁" title={t('activities.traditionalArts')}>
+          <p className="text-gray-600 mb-4">{t('activities.traditionalArtsDescription')}</p>
           <ul className="text-sm text-gray-500 space-y-1">
-            <li>• Cours de danse traditionnelle</li>
-            <li>• Initiation aux instruments</li>
-            <li>• Sculpture et artisanat</li>
+            {t('activities.traditionalArtsList').map((item, index) => (
+              <li key={index}>• {item}</li>
+            ))}
           </ul>
         </Card>
       </div>
 
       {/* Événements à venir avec affiches */}
       <div className="mt-16">
-        <h3 className="text-3xl font-bold text-red-800 mb-8 text-center">Événements à venir</h3>
+        <h3 className="text-3xl font-bold text-red-800 mb-8 text-center">{t('activities.upcomingEvents')}</h3>
         
         {/* Affiches d'événements */}
         <div className="grid md:grid-cols-2 gap-8 mb-12">
@@ -77,11 +79,11 @@ export default function Activites({ activitiesTitle }) {
               <div className="text-sm font-semibold">15 DÉCEMBRE 2024</div>
               <div className="text-2xl">🎉</div>
             </div>
-            <h4 className="text-2xl font-bold mb-3">Festival de fin d'année</h4>
-            <p className="text-white/90 mb-4">Célébration avec danses, musiques et plats traditionnels</p>
+            <h4 className="text-2xl font-bold mb-3">{t('activities.festivalTitle')}</h4>
+            <p className="text-white/90 mb-4">{t('activities.festivalDescription')}</p>
             <div className="flex items-center space-x-4 text-sm">
-              <span>📍 Salle des fêtes, Paris</span>
-              <span>🕐 18h00</span>
+              <span>📍 {t('activities.festivalLocation')}</span>
+              <span>🕐 {t('activities.festivalTime')}</span>
             </div>
           </div>
 
@@ -90,33 +92,33 @@ export default function Activites({ activitiesTitle }) {
               <div className="text-sm font-semibold">JANVIER 2025</div>
               <div className="text-2xl">📚</div>
             </div>
-            <h4 className="text-2xl font-bold mb-3">Nouvelle session de cours</h4>
-            <p className="text-white/90 mb-4">Inscriptions ouvertes pour les cours de langue Tikar</p>
+            <h4 className="text-2xl font-bold mb-3">{t('activities.newSessionTitle')}</h4>
+            <p className="text-white/90 mb-4">{t('activities.newSessionDescription')}</p>
             <div className="flex items-center space-x-4 text-sm">
-              <span>📍 Centre culturel</span>
-              <span>🕐 Samedi 10h-12h</span>
+              <span>📍 {t('activities.newSessionLocation')}</span>
+              <span>🕐 {t('activities.newSessionTime')}</span>
             </div>
           </div>
         </div>
 
         {/* Calendrier des événements */}
         <div className="bg-white rounded-2xl p-8 shadow-lg">
-          <h4 className="text-xl font-bold text-red-800 mb-6">Calendrier 2025</h4>
+          <h4 className="text-xl font-bold text-red-800 mb-6">{t('activities.calendar2025')}</h4>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="border-l-4 border-green-500 pl-4">
-              <div className="text-sm text-gray-500 mb-1">Février 2025</div>
-              <h5 className="font-semibold text-gray-800">Atelier de danse traditionnelle</h5>
-              <p className="text-gray-600 text-sm">Apprentissage des danses Tikar</p>
+              <div className="text-sm text-gray-500 mb-1">{t('activities.february2025')}</div>
+              <h5 className="font-semibold text-gray-800">{t('activities.danceWorkshop')}</h5>
+              <p className="text-gray-600 text-sm">{t('activities.danceWorkshopDescription')}</p>
             </div>
             <div className="border-l-4 border-blue-500 pl-4">
-              <div className="text-sm text-gray-500 mb-1">Mars 2025</div>
-              <h5 className="font-semibold text-gray-800">Conférence historique</h5>
-              <p className="text-gray-600 text-sm">Histoire du peuple Tikar</p>
+              <div className="text-sm text-gray-500 mb-1">{t('activities.march2025')}</div>
+              <h5 className="font-semibold text-gray-800">{t('activities.historicalConference')}</h5>
+              <p className="text-gray-600 text-sm">{t('activities.historicalConferenceDescription')}</p>
             </div>
             <div className="border-l-4 border-purple-500 pl-4">
-              <div className="text-sm text-gray-500 mb-1">Avril 2025</div>
-              <h5 className="font-semibold text-gray-800">Festival culturel</h5>
-              <p className="text-gray-600 text-sm">Grande célébration annuelle</p>
+              <div className="text-sm text-gray-500 mb-1">{t('activities.april2025')}</div>
+              <h5 className="font-semibold text-gray-800">{t('activities.culturalFestival')}</h5>
+              <p className="text-gray-600 text-sm">{t('activities.culturalFestivalDescription')}</p>
             </div>
           </div>
         </div>
